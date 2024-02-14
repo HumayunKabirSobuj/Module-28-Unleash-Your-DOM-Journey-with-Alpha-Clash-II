@@ -38,13 +38,22 @@ function handleKeyboardKeyupEvent(event) {
         //step 2: increase the score by 1
         const newScore = currentScore + 1;
         //step 3: show the updated score
-        currentScoreElement.innerText=newScore;
+        currentScoreElement.innerText = newScore;
         //start a new round
         removeBackgroundColorById(expectedAlphabet)
         continueGame();
     }
     else {
         console.log('you missed. you lost a life.')
+        //step 1: get the currect life number
+
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        //step -2: reduce the life count
+        const newLife = currentLife - 1;
+        //step -3: display the updated life count
+        currentLifeElement.innerText=newLife;
     }
 }
 
